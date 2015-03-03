@@ -1,7 +1,9 @@
 package com.artisub.diveshop.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -12,7 +14,9 @@ import java.util.Date;
  */
 @Entity
 @Table(name="ventas")
-@NamedQuery(name="Venta.findAll", query="SELECT v FROM Venta v")
+@NamedQueries({@NamedQuery(name="Venta.findAll", query="SELECT v FROM Venta v"),
+				@NamedQuery(name="Producto.findLast", query="SELECT v FROM Venta v ORDER BY v.id DESC")})
+
 public class Venta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,16 +28,16 @@ public class Venta implements Serializable {
 
 	private String comentarios;
 
-	private short descuento;
+	private Double descuento;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date feha;
 
-	private int numventa;
+	private Integer numventa;
 
 	private BigDecimal subtotal;
 
-	private String total;
+	private Double total;
 
 	//bi-directional many-to-one association to Formapago
 	@ManyToOne
@@ -70,11 +74,11 @@ public class Venta implements Serializable {
 		this.comentarios = comentarios;
 	}
 
-	public short getDescuento() {
+	public Double getDescuento() {
 		return this.descuento;
 	}
 
-	public void setDescuento(short descuento) {
+	public void setDescuento(Double descuento) {
 		this.descuento = descuento;
 	}
 
@@ -86,11 +90,11 @@ public class Venta implements Serializable {
 		this.feha = feha;
 	}
 
-	public int getNumventa() {
+	public Integer getNumventa() {
 		return this.numventa;
 	}
 
-	public void setNumventa(int numventa) {
+	public void setNumventa(Integer numventa) {
 		this.numventa = numventa;
 	}
 
@@ -102,11 +106,11 @@ public class Venta implements Serializable {
 		this.subtotal = subtotal;
 	}
 
-	public String getTotal() {
+	public Double getTotal() {
 		return this.total;
 	}
 
-	public void setTotal(String total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
 

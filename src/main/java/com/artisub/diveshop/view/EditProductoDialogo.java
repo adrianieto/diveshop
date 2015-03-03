@@ -14,7 +14,7 @@ public class EditProductoDialogo extends PDialogo {
 	
 	public EditProductoDialogo(ProductoCatalogo producto_Catalogo) {
 		productoCatalogo = producto_Catalogo;
-		setLocationRelativeTo(null);
+//		setLocationRelativeTo(null);
 		
         Producto producto = productoCatalogo.productoService.findById((int)(productoCatalogo.table.getModel().getValueAt(productoCatalogo.table.convertRowIndexToModel(productoCatalogo.table.getSelectedRow()), 0)));		
 		int i = productoCatalogo.getMapIndex(producto.getId());
@@ -26,8 +26,8 @@ public class EditProductoDialogo extends PDialogo {
 		partetextField.setText((String)productoCatalogo.modelo.getValueAt(i, 1));
 		modeloTextField.setText((String)productoCatalogo.modelo.getValueAt(i, 4));
 		precioTextField.setText(productoCatalogo.modelo.getValueAt(i, 8).toString());
-		existenciasTextField.setText(productoCatalogo.modelo.getValueAt(i, 7).toString());
-		
+		existenciasTextField.setText(producto.getExistencias().toString());
+		codigoTextField.setText(producto.getCodigo());
 	}
 
 	@Override
@@ -42,6 +42,7 @@ public class EditProductoDialogo extends PDialogo {
 		producto.setNumparte(partetextField.getText().toUpperCase());
 		producto.setPrecio(new BigDecimal(precioTextField.getText()));
 		producto.setExistencias(Integer.parseInt(existenciasTextField.getText()));
+		producto.setCodigo(codigoTextField.getText());
 		
 		productoCatalogo.productoService.update(producto);
 //		int selectedRow =  (int)(productoCatalogo.table.getModel().getValueAt(productoCatalogo.table.convertRowIndexToModel(productoCatalogo.table.getSelectedRow()), 0));

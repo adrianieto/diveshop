@@ -57,7 +57,7 @@ public class VentaDao implements IDAO<Venta> {
 			throws NoResultException {
 		Venta venta = null;
 		Query q = null;
-		if(!props.isEmpty()){
+		if(!props.isEmpty() ){
 			Object[] keys = props.keySet().toArray();
 			q = em.createNamedQuery(namedquery, Venta.class).setMaxResults(1);
 			q.setParameter((String) keys[0], props.getProperty((String) keys[0]));

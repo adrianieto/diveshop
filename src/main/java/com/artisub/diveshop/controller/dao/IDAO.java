@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import javax.persistence.NoResultException;
 
+
 public interface IDAO<T> {
 
 	public List<T> findAll();

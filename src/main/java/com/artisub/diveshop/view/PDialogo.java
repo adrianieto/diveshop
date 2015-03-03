@@ -1,17 +1,22 @@
 package com.artisub.diveshop.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.artisub.diveshop.controller.dao.ArticuloDao;
@@ -24,7 +29,7 @@ import com.artisub.diveshop.model.Colors;
 import com.artisub.diveshop.model.Marca;
 import com.artisub.diveshop.model.Talla;
 
-public abstract class PDialogo extends JFrame {
+public abstract class PDialogo extends JInternalFrame {
 
 	private static final long serialVersionUID = 139952250200626283L;
 	
@@ -33,6 +38,7 @@ public abstract class PDialogo extends JFrame {
 	protected JTextField partetextField;
 	protected JTextField precioTextField;
 	protected JTextField existenciasTextField;
+	protected JTextField codigoTextField;
 	JPanel panel;
 	JLabel lblArticulo ;
 	JLabel lblArticulo_1;
@@ -42,6 +48,7 @@ public abstract class PDialogo extends JFrame {
 	JLabel lblExistencias;
 	JLabel lblTalla;	
 	JLabel lblNumeroDeParte;
+	JLabel lblCodigo;
 	JButton btnGuardar;
 	JButton btnCancelar;
 	
@@ -64,22 +71,24 @@ public abstract class PDialogo extends JFrame {
 	
 	
 	
+	
 	/**
 	 * Create the frame.
 	 */
 	public PDialogo() {
 		setTitle("Nuevo Producto");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 410, 390);
+		setBounds(100, 100, 410, 420);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(SystemColor.control);
 		
 		panel = new JPanel();
+		panel.setBackground(SystemColor.control);
 		panel.setBounds(17, 10, 360, 300);
-//		panel.setBorder(new\ TitledBorder(UIManager.getBorder("TitledBorder.border"), "Nuevo Producto", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBorder(BorderFactory.createTitledBorder("Nuevo Producto"));
 		panel.setPreferredSize(new Dimension(360, 300));
 		contentPane.add(panel);
@@ -127,34 +136,47 @@ public abstract class PDialogo extends JFrame {
 		panel.add(colorComboBox);
 		
 		lblNumeroDeParte = new JLabel("Numero de Parte:");
-		lblNumeroDeParte.setBounds(205, 28, 106, 14);
+		lblNumeroDeParte.setBounds(205, 88, 106, 14);
 		panel.add(lblNumeroDeParte);
 		
 		partetextField = new JTextField();
-		partetextField.setBounds(205, 47, 124, 25);
+		partetextField.setBounds(205, 107, 124, 25);
 		panel.add(partetextField);
 		partetextField.setColumns(10);
 		
 		lblPrecio = new JLabel("Precio dls:");
-		lblPrecio.setBounds(205, 88, 80, 14);
+		lblPrecio.setBounds(205, 143, 80, 14);
 		panel.add(lblPrecio);
 		
 		precioTextField = new JTextField();
-		precioTextField.setBounds(205, 107, 124, 25);
+		precioTextField.setBounds(205, 162, 124, 25);
 		panel.add(precioTextField);
 		precioTextField.setColumns(10);
 		
 		lblExistencias = new JLabel("Existencias:");
-		lblExistencias.setBounds(205, 143, 80, 14);
+		lblExistencias.setBounds(205, 193, 80, 14);
 		panel.add(lblExistencias);
 		
 		existenciasTextField = new JTextField();
-		existenciasTextField.setBounds(205, 162, 124, 25);
+		existenciasTextField.setBounds(205, 211, 124, 25);
 		panel.add(existenciasTextField);
 		existenciasTextField.setColumns(10);
 		
+		codigoTextField = new JTextField();
+		codigoTextField.setColumns(10);
+		codigoTextField.setBounds(205, 49, 124, 25);
+		panel.add(codigoTextField);
+		
+		lblCodigo = new JLabel("Codigo:");
+		lblCodigo.setBounds(205, 28, 106, 14);
+		panel.add(lblCodigo);
+		
 		btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(88, 317, 89, 23);
+		btnGuardar.setBounds(88, 317, 89, 60);
+		btnGuardar.setBackground(Color.WHITE);
+		btnGuardar.setVerticalTextPosition(SwingConstants.BOTTOM);
+		btnGuardar.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnGuardar.setIcon(new ImageIcon("src/main/resources/Icons/guardar.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -165,7 +187,11 @@ public abstract class PDialogo extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(216, 317, 89, 23);
+		btnCancelar.setBounds(216, 317, 89, 60);
+		btnCancelar.setBackground(Color.WHITE);
+		btnCancelar.setVerticalTextPosition(SwingConstants.BOTTOM);
+		btnCancelar.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnCancelar.setIcon(new ImageIcon("src/main/resources/Icons/cancelar.png"));
 		btnCancelar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -177,17 +203,6 @@ public abstract class PDialogo extends JFrame {
 		
 		populateComboBoxes();
 	}
-	
-//	private void saveData(IDAO<?> dao, JComboBox<String> combobox, List<?> lista){
-//		
-//		Object o = combobox.getSelectedItem();
-//		for(Object a : lista){
-//			if(a.toString().compareTo(o.toString()){
-//				
-//			}
-//		}
-//		dao.create(obj);
-//	}
 	
 	/**
 	 * 
@@ -249,5 +264,4 @@ public abstract class PDialogo extends JFrame {
 			colorComboBox.addItem(c.getNombre());
 		}
 	}
-	
 }

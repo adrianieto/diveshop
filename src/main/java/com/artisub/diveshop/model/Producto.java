@@ -11,7 +11,10 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Producto.findAll", query="SELECT p FROM Producto p")
+@NamedQueries({@NamedQuery(name="Producto.findAll", query="SELECT p FROM Producto p"),
+			   @NamedQuery(name="Producto.findNumParte", query="SELECT p FROM Producto p WHERE p.numparte=:numparte"),
+			   @NamedQuery(name="Producto.findCodigo", query="SELECT c FROM Producto c WHERE c.codigo=:codigo")
+			   })
 public class Producto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,11 +24,13 @@ public class Producto implements Serializable {
 
 	private String descripcion;
 
-	private int existencias;
+	private Integer existencias;
 
 	private String numparte;
 
 	private BigDecimal precio;
+	
+	private String codigo;
 
 	//bi-directional many-to-one association to Articulo
 	@ManyToOne
@@ -66,7 +71,8 @@ public class Producto implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public int getExistencias() {
+	public Integer getExistencias() {
+		
 		return this.existencias;
 	}
 
@@ -142,6 +148,15 @@ public class Producto implements Serializable {
 
 	public void setColor(Colors color) {
 		this.color = color;
+	}
+	
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	@Override

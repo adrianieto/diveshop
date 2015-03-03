@@ -57,7 +57,7 @@ public class ProductoDao implements IDAO<Producto> {
 			throws NoResultException {
 		Producto producto = null;
 		Query q = null;
-		if(!props.isEmpty()){
+		if(props != null){
 			Object[] keys = props.keySet().toArray();
 			q = em.createNamedQuery(namedquery, Producto.class).setMaxResults(1);
 			q.setParameter((String) keys[0], props.getProperty((String) keys[0]));
@@ -66,6 +66,8 @@ public class ProductoDao implements IDAO<Producto> {
 			q = em.createNamedQuery(namedquery, Producto.class).setMaxResults(1);
 			producto = (Producto) q.getSingleResult();
 		}
+	
 		return producto;
 	}
+
 }

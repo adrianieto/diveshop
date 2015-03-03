@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -44,6 +45,7 @@ public abstract class Dialogo extends JFrame {
 		container = getContentPane();
 		
 		panel =  new JPanel(new BorderLayout());
+		panel.setBackground(SystemColor.control);
 		textPanel = new JPanel();
 		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
 		textPanel.setBorder(new TitledBorder(panelTitle));
