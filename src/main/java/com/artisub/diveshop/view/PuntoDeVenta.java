@@ -27,14 +27,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -466,7 +462,7 @@ public class PuntoDeVenta extends JInternalFrame {
 		cobrarBtn.setBackground(Color.WHITE);
 		cobrarBtn.setVerticalTextPosition(SwingConstants.BOTTOM);
 		cobrarBtn.setHorizontalTextPosition(SwingConstants.CENTER);
-		cobrarBtn.setIcon(new ImageIcon("src/main/resources/Icons/vender.png"));
+		cobrarBtn.setIcon(new ImageIcon("Icons/vender.png"));
 		cobrarBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -482,7 +478,7 @@ public class PuntoDeVenta extends JInternalFrame {
 		btnNuevaVenta.setBackground(Color.WHITE);
 		btnNuevaVenta.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnNuevaVenta.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnNuevaVenta.setIcon(new ImageIcon("src/main/resources/Icons/nueva_venta.png"));
+		btnNuevaVenta.setIcon(new ImageIcon("Icons/nueva_venta.png"));
 		btnNuevaVenta.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -505,7 +501,7 @@ public class PuntoDeVenta extends JInternalFrame {
 		cancelarVentaBtn.setBackground(Color.WHITE);
 		cancelarVentaBtn.setVerticalTextPosition(SwingConstants.BOTTOM);
 		cancelarVentaBtn.setHorizontalTextPosition(SwingConstants.CENTER);
-		cancelarVentaBtn.setIcon(new ImageIcon("src/main/resources/Icons/cancelar_venta.png"));
+		cancelarVentaBtn.setIcon(new ImageIcon("Icons/cancelar_venta.png"));
 		panel.add(cancelarVentaBtn);
 		panel.add(cobrarBtn);
 		

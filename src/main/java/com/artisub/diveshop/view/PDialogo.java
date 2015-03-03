@@ -176,7 +176,7 @@ public abstract class PDialogo extends JInternalFrame {
 		btnGuardar.setBackground(Color.WHITE);
 		btnGuardar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnGuardar.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnGuardar.setIcon(new ImageIcon("src/main/resources/Icons/guardar.png"));
+		btnGuardar.setIcon(new ImageIcon("Icons/guardar.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -191,7 +191,7 @@ public abstract class PDialogo extends JInternalFrame {
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCancelar.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCancelar.setIcon(new ImageIcon("src/main/resources/Icons/cancelar.png"));
+		btnCancelar.setIcon(new ImageIcon("Icons/cancelar.png"));
 		btnCancelar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

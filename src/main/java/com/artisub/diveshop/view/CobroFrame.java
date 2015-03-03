@@ -98,12 +98,12 @@ public class CobroFrame extends JFrame {
 		
 		JLabel labelMaterCard = new JLabel("");
 		labelMaterCard.setHorizontalAlignment(SwingConstants.CENTER);
-		labelMaterCard.setIcon(new ImageIcon("src/main/resources/Icons/mastercard.png"));
+		labelMaterCard.setIcon(new ImageIcon("Icons/mastercard.png"));
 		labelMaterCard.setBounds(139, 118, 59, 37);
 		panel.add(labelMaterCard);
 		
 		JLabel labelVisa = new JLabel("");
-		labelVisa.setIcon(new ImageIcon("src/main/resources/Icons/visa.png"));
+		labelVisa.setIcon(new ImageIcon("Icons/visa.png"));
 		labelVisa.setHorizontalAlignment(SwingConstants.CENTER);
 		labelVisa.setBounds(196, 118, 59, 37);
 		panel.add(labelVisa);
@@ -122,7 +122,7 @@ public class CobroFrame extends JFrame {
 		btnCobrar.setBackground(Color.WHITE);
 		btnCobrar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCobrar.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCobrar.setIcon(new ImageIcon("src/main/resources/Icons/cobro.png"));
+		btnCobrar.setIcon(new ImageIcon("Icons/cobro.png"));
 		btnCobrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -146,7 +146,7 @@ public class CobroFrame extends JFrame {
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCancelar.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCancelar.setIcon(new ImageIcon("src/main/resources/Icons/cancelar.png"));
+		btnCancelar.setIcon(new ImageIcon("Icons/cancelar.png"));
 		btnCancelar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

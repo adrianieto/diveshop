@@ -37,3 +37,4 @@ local.properties
 
 *.class
 /target/
+/miglayout15-swing.jar

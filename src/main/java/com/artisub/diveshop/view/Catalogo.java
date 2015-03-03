@@ -99,7 +99,7 @@ public abstract class Catalogo extends JInternalFrame{
 		nuevo.setPreferredSize(new Dimension(100, 80));
 		nuevo.setVerticalTextPosition(SwingConstants.BOTTOM);
 		nuevo.setHorizontalTextPosition(SwingConstants.CENTER);
-		nuevo.setIcon(new ImageIcon("src/main/resources/Icons/nuevo.png"));
+		nuevo.setIcon(new ImageIcon("Icons/nuevo.png"));
 		nuevo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -114,7 +114,7 @@ public abstract class Catalogo extends JInternalFrame{
 		editar.setPreferredSize(new Dimension(100,80));
 		editar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		editar.setHorizontalTextPosition(SwingConstants.CENTER);
-		editar.setIcon(new ImageIcon("src/main/resources/Icons/editar.png"));
+		editar.setIcon(new ImageIcon("Icons/editar.png"));
 		editar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -129,7 +129,7 @@ public abstract class Catalogo extends JInternalFrame{
 		borrar.setPreferredSize(new Dimension(100,80));
 		borrar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		borrar.setHorizontalTextPosition(SwingConstants.CENTER);
-		borrar.setIcon(new ImageIcon("src/main/resources/Icons/borrar.png"));
+		borrar.setIcon(new ImageIcon("Icons/borrar.png"));
 		borrar.addActionListener(new ActionListener() {		
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -143,7 +143,7 @@ public abstract class Catalogo extends JInternalFrame{
 //		cancelar.setBackground(Color.WHITE);
 		cancelar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		cancelar.setHorizontalTextPosition(SwingConstants.CENTER);
-		cancelar.setIcon(new ImageIcon("src/main/resources/Icons/cancelar.png"));
+		cancelar.setIcon(new ImageIcon("Icons/cancelar.png"));
 		cancelar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -157,7 +157,7 @@ public abstract class Catalogo extends JInternalFrame{
 //		aceptar.setBackground(Color.WHITE);
 		aceptar.setVerticalTextPosition(SwingConstants.BOTTOM);
 		aceptar.setHorizontalTextPosition(SwingConstants.CENTER);
-		aceptar.setIcon(new ImageIcon("src/main/resources/Icons/aceptar.png"));
+		aceptar.setIcon(new ImageIcon("Icons/aceptar.png"));
 		aceptar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
