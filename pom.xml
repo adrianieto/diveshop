@@ -66,10 +66,5 @@
   			</executions>
   		</plugin>
   	</plugins>
-  	<resources>
-      <resource>
-        <directory>/src/main/resources/Icons</directory>
-      </resource>
-    </resources>
   </build>
 </project>
