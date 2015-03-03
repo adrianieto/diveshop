@@ -462,7 +462,7 @@ public class PuntoDeVenta extends JInternalFrame {
 		cobrarBtn.setBackground(Color.WHITE);
 		cobrarBtn.setVerticalTextPosition(SwingConstants.BOTTOM);
 		cobrarBtn.setHorizontalTextPosition(SwingConstants.CENTER);
-		cobrarBtn.setIcon(new ImageIcon("Icons/vender.png"));
+		cobrarBtn.setIcon(new ImageIcon("src/main/resources/Icons/vender.png"));
 		cobrarBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -478,7 +478,7 @@ public class PuntoDeVenta extends JInternalFrame {
 		btnNuevaVenta.setBackground(Color.WHITE);
 		btnNuevaVenta.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnNuevaVenta.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnNuevaVenta.setIcon(new ImageIcon("Icons/nueva_venta.png"));
+		btnNuevaVenta.setIcon(new ImageIcon("src/main/resources/Icons/nueva_venta.png"));
 		btnNuevaVenta.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -501,7 +501,7 @@ public class PuntoDeVenta extends JInternalFrame {
 		cancelarVentaBtn.setBackground(Color.WHITE);
 		cancelarVentaBtn.setVerticalTextPosition(SwingConstants.BOTTOM);
 		cancelarVentaBtn.setHorizontalTextPosition(SwingConstants.CENTER);
-		cancelarVentaBtn.setIcon(new ImageIcon("Icons/cancelar_venta.png"));
+		cancelarVentaBtn.setIcon(new ImageIcon("src/main/resources/Icons/cancelar_venta.png"));
 		panel.add(cancelarVentaBtn);
 		panel.add(cobrarBtn);
 		

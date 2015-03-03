@@ -96,7 +96,7 @@ public class ProductoCatalogo extends Catalogo{
 	    table.setRowSorter(sorter);
 	    
 	    findBtn.setBackground(Color.WHITE);
-	    findBtn.setIcon(new ImageIcon("Icons/lupa.png"));
+	    findBtn.setIcon(new ImageIcon("src/main/resources/Icons/lupa.png"));
 	    findBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
