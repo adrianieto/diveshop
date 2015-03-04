@@ -58,6 +58,8 @@ public class PuntoDeVenta extends JInternalFrame {
 	Venta venta = null;
 	Producto producto = null;
 	
+	static Integer existencias=0;
+	
 	private static final long serialVersionUID = -7182516204320202906L;
 	private JPanel panel,contentPane,northPanel,northLeftPanel,northRightPanel,midPanel,sumatoriaPanel,labelPanel;
 //	private JMenuBar menuBar;
@@ -544,6 +546,8 @@ public class PuntoDeVenta extends JInternalFrame {
 		Properties p = new Properties();
 		p.put("codigo", codigo);
 		
+		
+		
 		try{
 			producto = productoService.getByQuery("Producto.findCodigo",p);
 			modeloTextField.setText(producto.getArticulo()+"  "+producto.getDescripcion()+" "+producto.getColor()+"  "+producto.getTalla());
@@ -551,7 +555,10 @@ public class PuntoDeVenta extends JInternalFrame {
 			cantidadTextField.requestFocus();
 			cantidadTextField.selectAll();
 			precioTextField.setText(producto.getPrecio().toString());
-			existenciasTextField.setText(producto.getExistencias().toString());
+
+			/***********/
+			existencias = existencias - Integer.parseInt(cantidadTextField.getText());
+			existenciasTextField.setText(existencias.toString());
 			precioPesosTextField.setText(producto.getPrecio().multiply(new BigDecimal(TIPO_DE_CAMBIO)).toString());
 			numParteTextField.setText(producto.getNumparte());
 		}catch(NoResultException ex){
@@ -581,6 +588,8 @@ public class PuntoDeVenta extends JInternalFrame {
 	}
 	
 	private void nuevaVentaClear(){
+		Integer venta = Integer.parseInt(ventaNumTextField.getText());
+		venta++;
 		descuentoTextField.setText("0.00");
 		modeloTextField.setText("");
 		cantidadTextField.setText("");
@@ -590,6 +599,7 @@ public class PuntoDeVenta extends JInternalFrame {
 		codigoTextField.setText("");
 		numParteTextField.setText("");
 		precioPesosTextField.setText("");
+		ventaNumTextField.setText(venta.toString());
 		
 		while(model.getRowCount() > 0){
 			model.removeRow(0);
