@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.pos;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,6 +24,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -45,6 +46,7 @@ import com.artisub.diveshop.controller.dao.ProductoDao;
 import com.artisub.diveshop.controller.dao.VentaDao;
 import com.artisub.diveshop.model.Producto;
 import com.artisub.diveshop.model.Venta;
+import com.artisub.diveshop.view.MainFrame;
 
 
 
@@ -57,8 +59,9 @@ public class PuntoDeVenta extends JInternalFrame {
 	List<Venta> lista_ventas = new ArrayList<Venta>();
 	Venta venta = null;
 	Producto producto = null;
+	PuntoDeVenta self = this;
 	
-	static Integer existencias=0;
+	Integer existencias=0;
 	
 	private static final long serialVersionUID = -7182516204320202906L;
 	private JPanel panel,contentPane,northPanel,northLeftPanel,northRightPanel,midPanel,sumatoriaPanel,labelPanel;
@@ -86,8 +89,9 @@ public class PuntoDeVenta extends JInternalFrame {
 	
 	//ACUMULADORES
 	protected Double subTotalAC=0.0, descuento=0.0, pagado=0.0, cambio=0.0, totalAC=0.0;
-	
-	PuntoDeVenta self = this;
+	private JPanel actionButtonPanel;
+	private JButton borrarBtn;
+	private JButton editarBtn;
 	
 	/**
 	 * Create the frame.
@@ -148,6 +152,20 @@ public class PuntoDeVenta extends JInternalFrame {
 		modeloTextField = new JTextField();
 		modeloTextField.setFont(new Font("Lao UI", Font.PLAIN, 12));
 		modeloTextField.setBounds(281, 14, 339, 28);
+		modeloTextField.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e){
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					SearchFrame sf = new SearchFrame(self, modeloTextField.getText());
+					sf.setVisible(true);
+					MainFrame.desktopPane.add(sf,JDesktopPane.POPUP_LAYER);
+					try {
+						sf.setSelected(true);
+					} catch (PropertyVetoException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
 		northLeftPanel.add(modeloTextField);
 		modeloTextField.setColumns(10);
 		
@@ -371,7 +389,29 @@ public class PuntoDeVenta extends JInternalFrame {
 		sumatoriaPanel = new JPanel();
 		sumatoriaPanel.setBackground(SystemColor.control);
 		midPanel.add(sumatoriaPanel);
-		sumatoriaPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+		sumatoriaPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		actionButtonPanel = new JPanel();
+		actionButtonPanel.setBackground(SystemColor.control);
+		actionButtonPanel.setPreferredSize(new Dimension(680, 200));
+		sumatoriaPanel.add(actionButtonPanel);
+		
+		borrarBtn = new JButton("Borrar");
+		borrarBtn.setBounds(5, 5, 63, 33);
+		borrarBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				subTotalAC -= (lista_ventas.get(table.getSelectedRow()).getProducto().getPrecio().doubleValue())*TIPO_DE_CAMBIO;
+				lista_ventas.remove(lista_ventas.get(table.getSelectedRow()));
+				model.removeRow(table.getSelectedRow());
+				subTotalLbl.setText(subTotalAC.toString());
+			}
+		});
+		actionButtonPanel.setLayout(null);
+		actionButtonPanel.add(borrarBtn);
+		
+		editarBtn = new JButton("Editar");
+		editarBtn.setBounds(73, 5, 61, 33);
+		actionButtonPanel.add(editarBtn);
 	
 		
 		labelPanel = new JPanel();
@@ -557,6 +597,8 @@ public class PuntoDeVenta extends JInternalFrame {
 			precioTextField.setText(producto.getPrecio().toString());
 
 			/***********/
+			
+		
 			existencias = existencias - Integer.parseInt(cantidadTextField.getText());
 			existenciasTextField.setText(existencias.toString());
 			precioPesosTextField.setText(producto.getPrecio().multiply(new BigDecimal(TIPO_DE_CAMBIO)).toString());

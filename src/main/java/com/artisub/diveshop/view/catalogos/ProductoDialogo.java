@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -29,7 +29,7 @@ import com.artisub.diveshop.model.Colors;
 import com.artisub.diveshop.model.Marca;
 import com.artisub.diveshop.model.Talla;
 
-public abstract class PDialogo extends JInternalFrame {
+public abstract class ProductoDialogo extends JInternalFrame {
 
 	private static final long serialVersionUID = 139952250200626283L;
 	
@@ -75,10 +75,10 @@ public abstract class PDialogo extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PDialogo() {
-		setTitle("Nuevo Producto");
+	public ProductoDialogo() {
+		setTitle("Kardex");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 410, 420);
+		setBounds(480, 100, 410, 420);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class MarcaCatalogo extends Catalogo {
 	@Override
 	protected void editItem() {
 		Marca marca = marcaService.findById(lista_marcas.get(table.getSelectedRow()).getId());
-		new Dialogo("Marcas","Editar Marcas", marca.getNombre()) {
+		new EditDialogo("Marcas","Editar Marcas", marca.getNombre()) {
 			private static final long serialVersionUID = 6392757110572220864L;
 			@Override
 			protected void okAction() {

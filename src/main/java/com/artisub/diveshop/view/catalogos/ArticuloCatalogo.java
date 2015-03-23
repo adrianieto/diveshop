@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class ArticuloCatalogo extends Catalogo {
 	protected void editItem() {
 		Articulo articulo = articuloService.findById(lista_articulos.get(table.getSelectedRow()).getId());
 		
-		new Dialogo("Articulos","Editar Articulos", articulo.getNombre()) {
+		new EditDialogo("Articulos","Editar Articulos", articulo.getNombre()) {
 			private static final long serialVersionUID = 8075908448456753456L;
 			@Override
 			protected void okAction() {

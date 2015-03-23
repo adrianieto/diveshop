@@ -1,10 +1,10 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.math.BigDecimal;
 
 import com.artisub.diveshop.model.Producto;
 
-public class NewProductoDialogo extends PDialogo {
+public class NewProductoDialogo extends ProductoDialogo {
 
 	private static final long serialVersionUID = 3752640680554238955L;
 	

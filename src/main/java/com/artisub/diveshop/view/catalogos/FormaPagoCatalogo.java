@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class FormaPagoCatalogo extends Catalogo {
 	protected void editItem(){
 		Formapago fp = formapagoService.findById(lista_formapagos.get(table.getSelectedRow()).getId());
 		
-		new Dialogo("Formas de Pago", "Editar formas de Pago", fp.getFormapago()) {
+		new EditDialogo("Formas de Pago", "Editar formas de Pago", fp.getFormapago()) {
 			private static final long serialVersionUID = -4662925180406083807L;
 			@Override
 			protected void okAction() {

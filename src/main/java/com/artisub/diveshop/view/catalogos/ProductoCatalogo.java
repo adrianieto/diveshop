@@ -1,10 +1,11 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.beans.PropertyVetoException;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +25,7 @@ import javax.swing.table.TableRowSorter;
 import com.artisub.diveshop.controller.dao.IDAO;
 import com.artisub.diveshop.controller.dao.ProductoDao;
 import com.artisub.diveshop.model.Producto;
+import com.artisub.diveshop.view.MainFrame;
 
 public class ProductoCatalogo extends Catalogo{
 
@@ -34,8 +36,6 @@ public class ProductoCatalogo extends Catalogo{
 	JButton findBtn;
 	
 	public DefaultTableModel modelo = new DefaultTableModel();
-	
-	
 	
 	public IDAO<Producto> productoService = new ProductoDao();
     public List<Producto> lista_productos = productoService.findAll();
@@ -67,9 +67,9 @@ public class ProductoCatalogo extends Catalogo{
 		searchText = new JTextField(20);
 		findBtn = new JButton();
 		
-		menuButtonPanel.add(buscarLbl);
-		menuButtonPanel.add(searchText);
-		menuButtonPanel.add(findBtn);
+		menuActionPanel.add(buscarLbl);
+		menuActionPanel.add(searchText);
+		menuActionPanel.add(findBtn);
 		
 		table.setPreferredScrollableViewportSize(new Dimension(900,320));
 		
@@ -128,7 +128,11 @@ public class ProductoCatalogo extends Catalogo{
 		NewProductoDialogo pd = new NewProductoDialogo(this);
 		pd.setVisible(true);
 		MainFrame.desktopPane.add(pd,JDesktopPane.POPUP_LAYER);
-		//table.repaint();
+		try {
+			pd.setSelected(true);
+		} catch (PropertyVetoException e1) {
+			e1.printStackTrace();
+		}
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -33,8 +33,8 @@ public abstract class Catalogo extends JInternalFrame{
 	private static final long serialVersionUID = 1L;
 	
 	protected Container container;
-	protected JPanel productosPanel, menuButtonPanel, cancelPanel;
-	protected JButton nuevo, editar, borrar, cancelar, aceptar;
+	protected JPanel productosPanel, menuActionPanel, cancelPanel, menuPanel;
+	protected JButton nuevo, editar, borrar, cancelar, aceptar, cMarcas, cArticulos, cTallas, cColores;
 	protected JScrollPane scrollPane;
 	protected JTable table;
 	protected DefaultTableModel model;
@@ -53,6 +53,8 @@ public abstract class Catalogo extends JInternalFrame{
 	protected  void init(){
 		container = getContentPane();
 		container.setLayout(new BorderLayout());
+		
+		
 		
 		model = new DefaultTableModel();
 		model.addColumn("Nombre");
@@ -81,6 +83,8 @@ public abstract class Catalogo extends JInternalFrame{
 		
 		scrollPane = new JScrollPane(table);
 		
+		
+		
 		productosPanel = new JPanel();
 		productosPanel.setBackground(SystemColor.control);
 		productosPanel.setLayout(new BoxLayout(productosPanel, BoxLayout.Y_AXIS));
@@ -90,8 +94,8 @@ public abstract class Catalogo extends JInternalFrame{
 		productosPanel.add(scrollPane);
 		productosPanel.add(Box.createVerticalStrut(10));
 		
-		menuButtonPanel = new JPanel(new FlowLayout());
-		menuButtonPanel.setBackground(Color.WHITE);
+		menuActionPanel = new JPanel(new FlowLayout());
+		menuActionPanel.setBackground(Color.WHITE);
 		
 		nuevo = new JButton("Nuevo");
 		nuevo.setFont(new Font("Lao UI",Font.BOLD,12));
@@ -167,9 +171,9 @@ public abstract class Catalogo extends JInternalFrame{
 		
 		
 		
-		menuButtonPanel.add(nuevo);
-		menuButtonPanel.add(editar);
-		menuButtonPanel.add(borrar);
+		menuActionPanel.add(nuevo);
+		menuActionPanel.add(editar);
+		menuActionPanel.add(borrar);
 		
 		cancelPanel = new JPanel(new FlowLayout());
 		cancelPanel.setBackground(SystemColor.control);
@@ -177,8 +181,24 @@ public abstract class Catalogo extends JInternalFrame{
 		cancelPanel.add(cancelar);
 		cancelPanel.add(aceptar);
 		
+		menuPanel = new JPanel();
+		menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+		cMarcas = new JButton("Marcas");
+		cArticulos = new JButton("Articulos");
 		
-		container.add(menuButtonPanel, BorderLayout.PAGE_START);
+		menuPanel.add(cMarcas);
+		cMarcas.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		menuPanel.add(cArticulos);
+		
+		container.add(menuActionPanel, BorderLayout.PAGE_START);
+//		container.add(menuPanel, BorderLayout.LINE_START);
 		container.add(productosPanel, BorderLayout.CENTER);
 		container.add(cancelPanel, BorderLayout.PAGE_END);
 		

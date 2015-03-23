@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class TallaCatalogo extends Catalogo {
 	protected void editItem() {
 		Talla talla = tallaService.findById(lista_tallas.get(table.getSelectedRow()).getId());
 		
-		new Dialogo("Tallas", "Editar Tallas", talla.getNombre()) {
+		new EditDialogo("Tallas", "Editar Tallas", talla.getNombre()) {
 			private static final long serialVersionUID = 5027167321553161454L;
 			@Override
 			protected void okAction() {

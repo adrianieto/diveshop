@@ -19,6 +19,14 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.border.EmptyBorder;
 
+import com.artisub.diveshop.view.catalogos.ArticuloCatalogo;
+import com.artisub.diveshop.view.catalogos.ColorCatalogo;
+import com.artisub.diveshop.view.catalogos.FormaPagoCatalogo;
+import com.artisub.diveshop.view.catalogos.MarcaCatalogo;
+import com.artisub.diveshop.view.catalogos.ProductoCatalogo;
+import com.artisub.diveshop.view.catalogos.TallaCatalogo;
+import com.artisub.diveshop.view.pos.PuntoDeVenta;
+
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
@@ -90,7 +98,7 @@ public class MainFrame extends JFrame {
 				PuntoDeVenta pv = new PuntoDeVenta();
 				pv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				pv.setVisible(true);
-				desktopPane.add(pv);
+				desktopPane.add(pv,JDesktopPane.POPUP_LAYER);
 				try {
 					pv.setSelected(true);
 				} catch (PropertyVetoException e1) {
@@ -133,7 +141,11 @@ public class MainFrame extends JFrame {
 				tc.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				tc.setVisible(true);
 				desktopPane.add(tc,JDesktopPane.POPUP_LAYER);
-				tc.requestFocus();
+				try {
+					tc.setSelected(true);
+				} catch (PropertyVetoException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		mnCatalogos.add(mntmTallas);
@@ -147,7 +159,11 @@ public class MainFrame extends JFrame {
 				cc.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				cc.setVisible(true);
 				desktopPane.add(cc,JDesktopPane.POPUP_LAYER);
-				cc.requestFocus();
+				try {
+					cc.setSelected(true);
+				} catch (PropertyVetoException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		mnCatalogos.add(mntmColores);
@@ -161,7 +177,11 @@ public class MainFrame extends JFrame {
 				ac.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				ac.setVisible(true);
 				desktopPane.add(ac,JDesktopPane.POPUP_LAYER);
-				ac.requestFocus();
+				try {
+					ac.setSelected(true);
+				} catch (PropertyVetoException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		mnCatalogos.add(mntmArticulos);
@@ -175,7 +195,11 @@ public class MainFrame extends JFrame {
 				mc.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				mc.setVisible(true);
 				desktopPane.add(mc,JDesktopPane.POPUP_LAYER);
-				mc.requestFocus();
+				try {
+					mc.setSelected(true);
+				} catch (PropertyVetoException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		mnCatalogos.add(mntmMarcas);
@@ -189,7 +213,11 @@ public class MainFrame extends JFrame {
 				fpc.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				fpc.setVisible(true);
 				desktopPane.add(fpc,JDesktopPane.POPUP_LAYER);
-				fpc.requestFocus();
+				try {
+					fpc.setSelected(true);
+				} catch (PropertyVetoException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		mnCatalogos.add(mntmFormasDePago);

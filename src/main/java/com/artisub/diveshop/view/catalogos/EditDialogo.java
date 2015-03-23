@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -12,12 +12,13 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-public abstract class Dialogo extends JFrame {
+public abstract class EditDialogo extends JFrame {
 	
 	private static final long serialVersionUID = 4136870369080166466L;
 	
@@ -29,10 +30,10 @@ public abstract class Dialogo extends JFrame {
 	
 	String panelTitle;
 
-	public Dialogo(String title, String panelTitle, String nombreItem){
+	public EditDialogo(String title, String panelTitle, String nombreItem){
 		super(title);
 		setSize(340, 150);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(this);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.panelTitle = panelTitle;
 		init();

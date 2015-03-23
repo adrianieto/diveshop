@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.catalogos;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class ColorCatalogo extends Catalogo {
 	protected void editItem(){
 		Colors color = colorService.findById(lista_colores.get(table.getSelectedRow()).getId());
 		
-		new Dialogo("Colores","Editar Color", color.getNombre()) {
+		new EditDialogo("Colores","Editar Color", color.getNombre()) {
 			private static final long serialVersionUID = 1920091302649263361L;
 			@Override
 			protected void okAction() {

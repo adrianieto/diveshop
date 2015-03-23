@@ -1,4 +1,4 @@
-package com.artisub.diveshop.view;
+package com.artisub.diveshop.view.pos;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
